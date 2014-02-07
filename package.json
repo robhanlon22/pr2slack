@@ -6,13 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Moz",
-  "contributors": [
-    {
-      "name": "Rob Hanlon",
-      "email": "rob.hanlon@moz.com"
-    }
-  ],
+  "author": "Rob Hanlon",
   "dependencies": {
     "logfmt": "~0.20.0",
     "express": "~3.4.8",
