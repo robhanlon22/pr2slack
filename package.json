@@ -1,0 +1,25 @@
+{
+  "name": "pr2slack",
+  "version": "0.0.0",
+  "description": "PR -> Slack",
+  "main": "app.coffee",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Moz",
+  "contributors": [
+    {
+      "name": "Rob Hanlon",
+      "email": "rob.hanlon@moz.com"
+    }
+  ],
+  "dependencies": {
+    "logfmt": "~0.20.0",
+    "express": "~3.4.8",
+    "coffee-script": "~1.7.1",
+    "request": "~2.33.0"
+  },
+  "engines": {
+    "node": "0.10.x"
+  }
+}
