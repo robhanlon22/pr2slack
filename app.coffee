@@ -29,7 +29,7 @@ app.post '/', (req, res) ->
         text = ":thumbsup: #{payload.comment.user.login} thinks that <#{payload.issue.html_url}|\"#{payload.issue.title}\"> is pretty good! :thumbsup:"
     else if /\bping\b/i.test payload.comment.body
       if payload.comment.user.login is payload.issue.user.login
-        text = ":raisedhand: #{payload.comment.user.login} has addressed comments on \"<#{payload.issue.html_url}|#{payload.issue.title}>\". Take another look. :raisedhand:"
+        text = ":raised_hand: #{payload.comment.user.login} has addressed comments on \"<#{payload.issue.html_url}|#{payload.issue.title}>\". Take another look. :raised_hand:"
       else
         text = ":thumbsdown: #{payload.comment.user.login} thinks that <#{payload.issue.html_url}|\"#{payload.issue.title}\"> needs some attention. :thumbsdown:"
 
