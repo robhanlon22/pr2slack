@@ -42,7 +42,7 @@ app.post '/', (req, res) ->
       token: process.env.SLACK_TOKEN
     json:
       channel: process.env.SLACK_CHANNEL
-      text: "<!channel>: #{text}"
+      text: text
       username: 'github'
       icon_url: 'https://slack-assets2.s3-us-west-2.amazonaws.com/10562/img/services/github_48.png'
 
