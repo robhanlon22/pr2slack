@@ -22,16 +22,16 @@ app.post '/', (req, res) ->
   payload = req.body
 
   if payload.action in ['opened', 'reopened']
-    text = ":bangbang: #{payload.pull_request.user.login} #{payload.action} <#{payload.pull_request.html_url}|\"#{payload.pull_request.title}\">. Take a look. :bangbang:"
+    text = ":pray: #{payload.pull_request.user.login} #{payload.action} <#{payload.pull_request.html_url}|\"#{payload.pull_request.title}\">. Take a look."
   else if payload.action is 'created'
     if /\blgtm\b/i.test payload.comment.body
       unless payload.comment.user.login is payload.issue.user.login # don't LGTM your own PR, ass
-        text = ":thumbsup: #{payload.comment.user.login} thinks that <#{payload.issue.html_url}|\"#{payload.issue.title}\"> is pretty good! :thumbsup:"
+        text = ":+1: #{payload.comment.user.login} thinks that <#{payload.issue.html_url}|\"#{payload.issue.title}\"> is pretty good!"
     else if /\bping\b/i.test payload.comment.body
       if payload.comment.user.login is payload.issue.user.login
-        text = ":raised_hand: #{payload.comment.user.login} has addressed comments on \"<#{payload.issue.html_url}|#{payload.issue.title}>\". Take another look. :raised_hand:"
+        text = ":hand: #{payload.comment.user.login} has addressed comments on \"<#{payload.issue.html_url}|#{payload.issue.title}>\". Take another look."
       else
-        text = ":thumbsdown: #{payload.comment.user.login} thinks that <#{payload.issue.html_url}|\"#{payload.issue.title}\"> needs some attention. :thumbsdown:"
+        text = ":-1: #{payload.comment.user.login} thinks that <#{payload.issue.html_url}|\"#{payload.issue.title}\"> needs some attention."
 
   return res.json 200 unless text?
 
