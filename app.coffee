@@ -22,7 +22,7 @@ app.post '/', (req, res) ->
   payload = req.body
 
   if payload.action in ['opened', 'reopened']
-    text = ":pray: #{payload.pull_request.user.login} #{payload.action} <#{payload.pull_request.html_url}|\"#{payload.pull_request.title}\"> on <#{payload.pull_request.repo.html_url}|#{payload.pull_request.repo.name}>. Take a look."
+    text = ":pray: #{payload.pull_request.user.login} #{payload.action} <#{payload.pull_request.html_url}|\"#{payload.pull_request.title}\"> on <#{payload.pull_request.base.repo.html_url}|#{payload.pull_request.base.repo.name}>. Take a look."
   else if payload.action is 'created'
     if /\blgtm\b/i.test payload.comment.body
       unless payload.comment.user.login is payload.issue.user.login # don't LGTM your own PR, ass
