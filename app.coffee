@@ -26,12 +26,12 @@ app.post '/', (req, res) ->
   else if payload.action is 'created'
     if /\blgtm\b/i.test payload.comment.body
       unless payload.comment.user.login is payload.issue.user.login # don't LGTM your own PR, ass
-        text = ":+1: #{payload.comment.user.login} thinks that <#{payload.issue.html_url}|\"#{payload.issue.title}\"> is pretty good!"
+        text = ":+1: #{payload.comment.user.login} thinks that <#{payload.issue.html_url}|\"#{payload.issue.title}\"> is pretty rad!"
     else if /\bp[io]ng\b/i.test payload.comment.body
       if payload.comment.user.login is payload.issue.user.login
-        text = ":hand: #{payload.comment.user.login} has addressed comments on \"<#{payload.issue.html_url}|#{payload.issue.title}>\". Take another look."
+        text = ":hand: #{payload.comment.user.login} has addressed comments on \"<#{payload.issue.html_url}|#{payload.issue.title}>\"."
       else
-        text = ":-1: #{payload.comment.user.login} thinks that <#{payload.issue.html_url}|\"#{payload.issue.title}\"> needs some attention."
+        text = ":golf: #{payload.comment.user.login} has left some comments on <#{payload.issue.html_url}|\"#{payload.issue.title}\">."
 
   return res.json 200 unless text?
 
