@@ -11,8 +11,7 @@
     "logfmt": "~0.20.0",
     "express": "~3.4.8",
     "coffee-script": "~1.7.1",
-    "request": "~2.33.0",
-    "lodash": "^2.4.1"
+    "request": "~2.33.0"
   },
   "engines": {
     "node": "0.10.x"
