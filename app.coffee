@@ -42,7 +42,7 @@ app.post '/', (req, res) ->
   if payload.action in ['opened', 'reopened']
     text = ":pray: #{payload.pull_request.user.login} #{payload.action} <#{payload.pull_request.html_url}|\"#{escape payload.pull_request.title}\"> on <#{payload.pull_request.base.repo.html_url}|#{escape payload.pull_request.base.repo.name}>. Take a look."
   else if payload.action is 'created'
-    if /\blgtm\b/i.test payload.comment.body
+    if /\blg(tm|bt)\b/i.test payload.comment.body
       unless payload.comment.user.login is payload.issue.user.login # don't LGTM your own PR, ass
         text = ":+1: #{payload.comment.user.login} thinks that <#{payload.issue.html_url}|\"#{escape payload.issue.title}\"> is pretty rad!"
     else if /\bp[io]ng\b/i.test payload.comment.body
