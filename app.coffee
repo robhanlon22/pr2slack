@@ -45,7 +45,7 @@ app.post '/', (req, res) ->
     if /\b(?:lg(?:tm|btq?)|it seems great)\b/i.test payload.comment.body
       unless payload.comment.user.login is payload.issue.user.login # don't LGTM your own PR, ass
         text = ":+1: #{payload.comment.user.login} thinks that <#{payload.issue.html_url}|\"#{escape payload.issue.title}\"> is pretty rad!"
-    else if /\bp[io]ng\b/i.test payload.comment.body
+    else if /\bp[io]ng|synack\b/i.test payload.comment.body
       if payload.comment.user.login is payload.issue.user.login
         text = ":hand: #{payload.comment.user.login} has addressed comments on \"<#{payload.issue.html_url}|#{escape payload.issue.title}>\"."
       else
